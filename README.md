@@ -1,7 +1,7 @@
 # moralis_hackathon
 Submission Moralis Hackathon. This repo cintains the material submitted to the Moralis Hackhaton 31.1.2022
 
-Project: Youfoundme - Decentralized Identity for Web3 and the Metaverse https://youfoundme.io
+Project: Youfoundme - Decentralized Identity for Web3 and Metaverse https://youfoundme.io
 
 
 
