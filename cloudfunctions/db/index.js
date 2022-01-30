@@ -26,6 +26,7 @@ const jwt = require('@tsndr/cloudflare-worker-jwt')
 // const
 const REGION = 'eu-central-1' // Frankfurt
 
+
 const FLA_EMAILCONFIRMED = 1; // not NFT Meta
 const FLA_SMSCONFIRMED = 2; // not NFT Meta
 const FLA_FULLTIME = 4; // not NFT Meta
@@ -46,10 +47,10 @@ const FLA_SPARE2 = 65536;
 const FLA_SPARE3 = 131072;
 const FLA_SPARE4 = 262144;
 
+
 var TBL_REGISTER = "yfm_person"
 var TBL_PERMISSION = "yfm_permission"
 var secret = TOKENSECRET;
-
 
 
  // table names switch
@@ -66,12 +67,13 @@ router.options('/perm/get/:me/:you', handleCors({ methods: 'GET', maxAge: 86400 
 router.options('/search/:term/:startkey', handleCors({ methods: 'GET', maxAge: 86400 }))
 
 async function myCredentialProvider() {
-  return {
-    // use wrangler secrets to provide these global variables
-    accessKeyId: 'AKIAXW6XU6E25N32QAOO', // AWS_ACCESS_KEY_ID,
-    secretAccessKey: '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', //AWS_SECRET_ACCESS_KEY
-  }
+    return {
+        // use wrangler secrets to provide these global variables
+        accessKeyId: AWS_ACCESS_KEY_ID,
+        secretAccessKey: AWS_SECRET_ACCESS_KEY
+    }
 }
+
 
 function didToPubkey(did) {
   return did.substr(8).toLowerCase();
@@ -114,7 +116,7 @@ export class Person {
     this.gname = ''
     this.sname = ''
     this.metafile = ''
-    this.flags = ""
+    this.flags = "0"
     this.created = ""
     this.magic = ""
     this.pin = ""
@@ -298,6 +300,7 @@ router.get('/get/:pubkey', async (req) => {
 
     console.log("token: " + token);
     const did = await parseToken(token);
+    console.log("did from token: " + did);
     const pubkeyToken = didToPubkey(did);//perm/secret
     isOwner = (pubkeyToken == pubkey);
     console.log("pubkeyToken " + pubkeyToken);
