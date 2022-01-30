@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "../youfoundme"
+    },
+    {
+      "path": "."
+    },
+    {
+      "path": "../yfm_contracts"
+    }
+  ],
+  "settings": {}
+}

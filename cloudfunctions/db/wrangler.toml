@@ -1,0 +1,31 @@
+account_id = "fd148ae4e7fb02763416f2bca9bb4bdf"
+name = "yfm_db-dev"
+type = "webpack"
+workers_dev = true
+compatibility_date = "2022-01-08"
+zone_id = "fcf76574bd8c4e042cf94c724cb932c5"
+route = "dbs-dev.youfoundme.io/*"
+
+[vars]
+ENVIRONMENT = "dev"
+AWS_REGION = "eu-central-1"
+AWS_DYNAMO_TABLE = "yfm_dev_register"
+AWS_DYNAMO_TABLE_PERM = "yfm_dev_permission"
+AWS_DYNAMO_PRIMARYKEY = "pubkey"
+
+
+[env.prod]
+name = "yfm_db"
+route = "dbs.youfoundme.io/*"
+
+[env.prod.vars]
+ENVIRONMENT = "prod"
+AWS_REGION = "eu-central-1"
+AWS_DYNAMO_TABLE = "yfm_register"
+AWS_DYNAMO_TABLE_PERM = "yfm_permission"
+AWS_DYNAMO_PRIMARYKEY = "pubkey"
+
+
+#[secrets]
+#AWS_ACCESS_KEY_ID
+#AWS_SECRET_ACCESS_KEY

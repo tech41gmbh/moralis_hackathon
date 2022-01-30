@@ -1,0 +1,9 @@
+{
+    "Template": {
+        "TemplateName": "YFM_EmailVerify",
+        "SubjectPart": "Your Youfoundme code",
+        "TextPart": "Welcome to Youfoundme. Please enter code {{code}}",
+        "HtmlPart": "<h1>Welcome to Youfoundme</h1><p>Please enter code {{code}}"
+    }
+}
+

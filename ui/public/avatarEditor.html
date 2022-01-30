@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <style>
+      .container {
+        margin-top: 00px;
+        margin: auto;
+      }
+
+      .content {
+        margin-top: 0px;
+        border: none;
+        width: 100%;
+        height: calc(100%);
+      }
+
+      #avatarUrl {
+        margin-top: 0px;
+      }
+
+      body {
+        padding: 0 0;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        background-color: rgb(25, 29, 39);
+      }
+
+      .warning {
+        color: rgb(215, 0, 0);
+        font-weight: bold;
+      }
+    </style>
+
+    <script>
+      // Listen to messages from the iframe
+      window.addEventListener('message', receiveMessage, false)
+
+      // Handle messages from the iframe
+      function receiveMessage(event) {
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const did = urlParams.get('did');
+
+
+        // Check if the received message is a string and a glb url
+        // if not ignore it, and print details to the console
+        if (
+          typeof event.data === 'string' &&
+          event.data.startsWith('https://') &&
+          event.data.endsWith('.glb')
+        ) {
+          const url = event.data
+     
+         document.getElementById('iframe').hidden = true
+         document.getElementById('avatarUrl').innerHTML = `${url}`
+         postMessage(url);
+         
+        } else {
+          console.log(`Received message from unknown source: ${event.data}`)
+        }
+      }
+
+      function displayIframe() {
+       // document.getElementById('avatarUrl').innerHTML = 'Avatar URL:'
+        document.getElementById('iframe').hidden = false
+      }
+    </script>
+  </head>
+
+  <body onLoad="displayIframe()"">
+      <center>
+          <input type='hidden' id='avatarUrl'/>
+      <iframe
+        id="iframe"
+        class="content"
+        allow="camera *; microphone *"
+        src="https://youfoundme.readyplayer.me/"
+        hidden="false"
+      ></iframe>
+    </center>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+name = "yfm_sign-dev"
+type = "webpack"
+route = "sign-dev.youfoundme.io/*"
+usage_model = ''
+compatibility_flags = []
+workers_dev = true
+compatibility_date = "2021-12-15"
+zone_id = "fcf76574bd8c4e042cf94c724cb932c5"
+
+[vars]
+ENVIRONMENT = "dev"
+
+[env.prod]
+name = "yfm_sign"
+route = "sign.youfoundme.io/*"
+
+[env.prod.vars]
+ENVIRONMENT = "prod"

@@ -1,0 +1,9 @@
+{
+    "Template": {
+        "TemplateName": "YFM_EmailMessage",
+        "SubjectPart": "Youfoundme site message",
+        "TextPart": "{{message}}",
+        "HtmlPart": "{{message}}"
+    }
+}
+

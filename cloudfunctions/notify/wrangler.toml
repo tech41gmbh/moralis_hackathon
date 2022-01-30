@@ -1,0 +1,22 @@
+name = "yfm_notify-dev"
+type = "webpack"
+route = "notify-dev.youfoundme.io/*"
+zone_id = "fcf76574bd8c4e042cf94c724cb932c5"
+usage_model = ''
+compatibility_flags = []
+workers_dev = true
+compatibility_date = "2022-01-08"
+account_id = "fd148ae4e7fb02763416f2bca9bb4bdf"
+
+[vars]
+ENVIRONMENT = "dev"
+
+
+[env.prod]
+name = "yfm_notify"
+route = "notify.youfoundme.io/*"
+
+
+[env.prod.vars]
+ENVIRONMENT = "prod"
+

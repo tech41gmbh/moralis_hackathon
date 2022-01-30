@@ -1,0 +1,8 @@
+{
+    "Template": {
+        "TemplateName": "YFM_EmailConnect",
+        "SubjectPart": "Youfoundme connection request",
+        "TextPart": "Hi {{usernameTo}}, Youfoundme user {{usernameFrom}} would like to connect with you. To accpet please go to https://api.tech41.de/yfm/v0/confirm/{{magic}} {{msg}}.",
+        "HtmlPart": "<a href='https://api.tech41.de/yfm/v0/confirm/{{magic}}'>connect</a><br/><br/><pre>{{msg}}</pre><br/><br/>To connect please <a href='https://api.tech41.de/yfm/v0/confirm/{{magic}}'>click here</a><br/><br/>Thank you, your Youfoundme Team<br/><br/><a href='https://youfoundme.io'>youfoundme.io</a>"
+    }
+}

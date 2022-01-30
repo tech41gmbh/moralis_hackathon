@@ -1,0 +1,8 @@
+{
+    "Template": {
+        "TemplateName": "YFM_EmailConfirm",
+        "SubjectPart": "Youfoundme confirmation",
+        "TextPart": "Hi {{usernameTo}}, Youfoundme user {{usernameFrom}} has accepted your connecton request. Please follow https://app.youfoundme.io/#/show/{{did}}" ,
+        "HtmlPart": "Hi {{usernameTo}}, <br/> <br/> Youfoundme user {{usernameFrom}} has accepted your connecton request. <br/><br/>To see {{usernameFrom}}'s  profile please <a href='https://app.youfoundme.io/#/show/{{did}}'>click here</a><br/><br/>Thank you,<br/> Youfoundme Team<br/><br/><br/><a href='https://youfoundme.io'>youfoundme.io</a>"
+    }
+}

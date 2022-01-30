@@ -1,0 +1,66 @@
+
+// Cloud function in Moralis Cloud
+
+TEST:
+Moralis.Cloud.define("createToken", async (request) => {
+  const logger = Moralis.Cloud.getLogger();
+  var username = request.params.username;
+  var did = request.params.did;
+  var session = request.params.session;
+ 
+  const user = request.user;
+  if(user.get('ethAddress') != did.substr(8)){
+    return "{'status':'autherror'}";
+  }
+  const u = "" + encodeURI('https://api-dev.youfoundme.io/v0/token/set/' + username + '/' + did + '/' + session);
+  
+      let results;
+      results = await Moralis.Cloud.httpRequest({
+        url: u,
+        followRedirects: true,
+      }).then(
+        function (httpResponse) {
+          results = httpResponse.text;
+          logger.info("over here" + results);
+          logger.info(httpResponse.text);
+          return results; //There
+        }
+      );
+      logger.info("end" + results);
+      return results;
+    });
+
+
+
+
+PROD:
+
+ Moralis.Cloud.define("createToken",function(request){
+  
+  const logger = Moralis.Cloud.getLogger();
+  var username = request.params.username;
+  var did = request.params.did;
+  var session = request.params.session;
+  
+  logger.info("Token requested username:" + username + " did:" + did + " session:" + session);
+  const user = request.user;
+  
+  if(user.get('ethAddress') != did.substr(8)){
+    return "{'status':'autherror'}";
+  }
+    
+  const url = 'https://api.youfoundme.io/v0/token/set/' + username + '/' + did + '/' + session;
+  Moralis.Cloud.httpRequest({
+  url: url,
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8'
+  }
+  }).then(function(httpResponse) {
+    console.log(httpResponse.text);
+    return httpResponse.text;
+  }, function(httpResponse) {
+    console.error('Request failed with response code ' + httpResponse.status);
+  });
+  
+return "{'status':'ok'}";
+});
