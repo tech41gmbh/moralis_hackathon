@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@aws-sdk/client-ses": "^3.45.0",
-        "@aws-sdk/client-sns": "^3.45.0",
+        "@aws-sdk/client-sns": "^3.276.0",
         "@tsndr/cloudflare-worker-jwt": "^1.1.5",
         "itty-router": "^2.1.9",
         "itty-router-extras": "^0.4.2",
