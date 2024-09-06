@@ -20,7 +20,7 @@
         "string-replace-loader": "^3.1.0"
     },
     "dependencies": {
-        "@metamask/eth-sig-util": "^4.0.0",
+        "@metamask/eth-sig-util": "^5.0.1",
         "eip-712": "^0.4.3",
         "eth-sig-util": "^3.0.1",
         "ethereumjs-util": "^7.1.3",
